@@ -1,0 +1,48 @@
+<!DOCTYPE HTML>
+<html ng-app="ShoppingListCheckOff">
+
+    <head>
+
+        <script src = "angular.min.js"> </script>
+        <script src = "app.js"> </script> 
+        <link rel="stylesheet" type="text/css" href="style.css">
+</head> 
+    <body>
+<h1 style="margin-left : 371px;"> Check Off Shopping List Application </h1>
+<h2>To Buy List </h2>
+<div class = "buyList" ng-controller="ToBuyController as buy">
+    <div ng-if= "buy.buyItems.length==0">
+        <h2 style="margin-left:151px;color:red; margin-top: 160px;  "> No product to buy </h2>
+    </div>
+    <ol>
+        <li ng-repeat="buyItem in buy.buyItems">
+           
+           <h4 style = "display: inline">Buy {{buyItem.quantity}} {{buyItem.name}}  </h4>
+           <!--<h4 style = "display: inline"> Buy 10 cookies </h4>-->
+           <button style="margin-left : 5px;width:80px;" ng-click = "buy.removeFromStock($index)" > Buy </button>
+        </li>
+    </ol>
+
+</div>
+<h2 style = "margin-top: -449px; margin-left: 520px;"> Bought List </h2>
+<div class = "boughtList" ng-controller="AlreadyBoughtController as bought">
+    <div ng-if="bought.boughtItems.length==0">
+         <h2 style="margin-left:151px;color:red; margin-top: 160px;  "> No product bought yet </h2>
+        
+         </div>
+    <ol>
+        <li ng-repeat="boughtItem in bought.boughtItems">
+           
+           <h4 style = "display: inline">Bought {{boughtItem.quantity}} {{boughtItem.name}}  </h4>
+           
+           <!--<h4 style = "display: inline"> Buy 10 cookies </h4>-->
+           <button style="margin-left : 5px;" ng-click="bought.removeFromBoughtList($index)"> Remove from list </button>
+        </li>
+    </ol>
+    <div ng-if="bought.boughtItems.length==5">
+        <h3 style="margin-left:151px;color:red"> You have bought all the items.</h3>
+          </div>
+      </div>
+    </body>
+
+</html>

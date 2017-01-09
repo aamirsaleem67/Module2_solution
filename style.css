@@ -1,0 +1,14 @@
+.buyList{
+
+    width: 500px;
+    border: 1px solid green;
+    height : 400px;
+}
+
+.boughtList{
+
+    width : 500px;
+    border: 1px solid indigo;
+    height: 400px;
+    margin-left:522px;
+}
